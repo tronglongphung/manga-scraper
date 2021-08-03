@@ -12,9 +12,9 @@ const Profile = () => {
   return (
     <div>
       <h1>Profile</h1>
-      <p>First Name: {data.user.firstName}</p>
-      <p>Last Name: {data.user.lastName}</p>
+      <p>Name: {data.user.name}</p>
       <p>Email: {data.user.email}</p>
+      <p>Favorite Manga: {data.user.savedManga.join(', ')}</p>
     </div>
   );
 };
