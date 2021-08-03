@@ -5,7 +5,7 @@ import Auth from '../state/auth';
 import { ADD_USER } from '../api/mutations';
 
 function Signup(props) {
-  const [formState, setFormState] = useState({ email: '', password: '', firstName: '', lastName: '' });
+  const [formState, setFormState] = useState({ email: '', password: '', name: '' });
   const [addUser] = useMutation(ADD_USER);
 
   const handleFormSubmit = async (event) => {
@@ -32,12 +32,8 @@ function Signup(props) {
       <h2>Signup</h2>
       <form onSubmit={handleFormSubmit}>
         <div className="flex-row space-between my-2">
-          <label htmlFor="firstName">First Name:</label>
-          <input placeholder="First" name="firstName" type="firstName" id="firstName" onChange={handleChange} />
-        </div>
-        <div className="flex-row space-between my-2">
-          <label htmlFor="lastName">Last Name:</label>
-          <input placeholder="Last" name="lastName" type="lastName" id="lastName" onChange={handleChange} />
+          <label htmlFor="name">Name:</label>
+          <input placeholder="Name" name="name" type="name" id="name" onChange={handleChange} />
         </div>
         <div className="flex-row space-between my-2">
           <label htmlFor="email">Email:</label>
