@@ -1,15 +1,13 @@
 /* This example requires Tailwind CSS v2.0+ */
 import { Fragment } from 'react';
 import { Disclosure, Menu, Transition } from '@headlessui/react';
-import { BellIcon, MenuIcon, XIcon } from '@heroicons/react/outline';
+import { MenuIcon, XIcon } from '@heroicons/react/outline';
 import Auth from '../../state/auth';
 import { Link } from 'react-router-dom';
 
 const navigation = [
-  { name: 'Dashboard', href: '#', current: true },
-  { name: 'Team', href: '#', current: false },
-  { name: 'Projects', href: '#', current: false },
-  { name: 'Calendar', href: '#', current: false },
+  { name: 'Home', href: '/', current: false },
+  { name: 'Saved Manga', href: '/saved', current: false },
 ];
 
 function classNames(...classes) {
@@ -17,7 +15,7 @@ function classNames(...classes) {
 }
 
 export default function Nav() {
-  function showNavigation() {
+  function showDropdown() {
     if (Auth.loggedIn()) {
       return (
         <Menu as="div" className="ml-3 relative">
@@ -67,7 +65,7 @@ export default function Nav() {
                         onClick={() => Auth.logout()}
                         className={classNames(active ? 'bg-gray-100' : '', 'block px-4 py-2 text-sm text-gray-700')}
                       >
-                        Logout
+                        Log Out
                       </a>
                     )}
                   </Menu.Item>
@@ -113,7 +111,7 @@ export default function Nav() {
                         to="/login"
                         className={classNames(active ? 'bg-gray-100' : '', 'block px-4 py-2 text-sm text-gray-700')}
                       >
-                        Login
+                        Log In
                       </Link>
                     )}
                   </Menu.Item>
@@ -125,7 +123,7 @@ export default function Nav() {
                         to="/signup"
                         className={classNames(active ? 'bg-gray-100' : '', 'block px-4 py-2 text-sm text-gray-700')}
                       >
-                        Signup
+                        Sign Up
                       </Link>
                     )}
                   </Menu.Item>
@@ -157,23 +155,26 @@ export default function Nav() {
               </div>
               <div className="flex-1 flex items-center justify-center sm:items-stretch sm:justify-start">
                 <div className="flex-shrink-0 flex items-center">
+                  <a className="hidden" href="https://icons8.com/icon/16424/hearts">
+                    Hearts
+                  </a>
                   <img
                     className="block lg:hidden h-8 w-auto"
-                    src="https://tailwindui.com/img/logos/workflow-mark-indigo-500.svg"
-                    alt="Workflow"
+                    src="https://img.icons8.com/color/50/000000/hearts.png"
+                    alt="Hearts"
                   />
                   <img
                     className="hidden lg:block h-8 w-auto"
-                    src="https://tailwindui.com/img/logos/workflow-logo-indigo-500-mark-white-text.svg"
-                    alt="Workflow"
+                    src="https://img.icons8.com/color/50/000000/hearts.png"
+                    alt="Hearts"
                   />
                 </div>
                 <div className="hidden sm:block sm:ml-6">
                   <div className="flex space-x-4">
                     {navigation.map((item) => (
-                      <a
+                      <Link
                         key={item.name}
-                        href={item.href}
+                        to={item.href}
                         className={classNames(
                           item.current ? 'bg-gray-900 text-white' : 'text-gray-300 hover:bg-gray-700 hover:text-white',
                           'px-3 py-2 rounded-md text-sm font-medium'
@@ -181,20 +182,14 @@ export default function Nav() {
                         aria-current={item.current ? 'page' : undefined}
                       >
                         {item.name}
-                      </a>
+                      </Link>
                     ))}
                   </div>
                 </div>
               </div>
               <div className="absolute inset-y-0 right-0 flex items-center pr-2 sm:static sm:inset-auto sm:ml-6 sm:pr-0">
-                <button className="bg-gray-800 p-1 rounded-full text-gray-400 hover:text-white focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-offset-gray-800 focus:ring-white">
-                  <span className="sr-only">View notifications</span>
-                  <BellIcon className="h-6 w-6" aria-hidden="true" />
-                </button>
-
-                {/* cut here */}
                 {/* Profile dropdown */}
-                {showNavigation()}
+                {showDropdown()}
               </div>
             </div>
           </div>

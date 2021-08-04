@@ -7,7 +7,8 @@ import Home from './pages/Home';
 import NoMatch from './pages/NoMatch';
 import Login from './pages/Login';
 import Signup from './pages/Signup';
-import Nav from './components/Nav/2';
+import Nav from './components/Nav/Nav2';
+import Saved from './pages/Saved';
 import { StoreProvider } from './state/GlobalState';
 import Profile from './pages/Profile';
 
@@ -39,6 +40,7 @@ function App() {
             <Nav />
             <Switch>
               <Route exact path="/" component={Home} />
+              <Route exact path="/saved" component={Saved} />
               <Route exact path="/login" component={Login} />
               <Route exact path="/signup" component={Signup} />
               <Route exact path="/profile" component={Profile} />
