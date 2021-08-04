@@ -5,6 +5,7 @@
   "proxy": "http://localhost:3001",
   "dependencies": {
     "@apollo/client": "^3.4.1",
+    "@specify_/mangascraper": "^3.6.0",
     "graphql": "^15.5.1",
     "jwt-decode": "^3.1.2",
     "manganelo": "^1.0.3",

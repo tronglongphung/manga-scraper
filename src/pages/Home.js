@@ -1,19 +1,12 @@
 import React, { useEffect } from 'react';
-
-import { Manganelo } from 'manganelo';
-const manganelo = new Manganelo();
+import getChapterPanels from '../api/chapterPanels';
 
 const Home = () => {
-  async function chapterPanels() {
-    const blackClover = await manganelo.getMangaByID('black_clover');
-    const panels = await manganelo.getChapterPanels(blackClover.slug, '1');
-    return panels;
-  }
-
   useEffect(() => {
-    chapterPanels();
-  }, []);
-
+    const panelData = getChapterPanels('https://readmanganato.com/manga-eh951664/chapter-264');
+    const panelList = panelData.map((panel) => <img src={panel.uri} alt={panel.id} />);
+    console.log(panelList);
+  });
   return (
     <div className="container">
       <h1>Home</h1>
