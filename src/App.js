@@ -7,7 +7,7 @@ import Home from './pages/Home';
 import NoMatch from './pages/NoMatch';
 import Login from './pages/Login';
 import Signup from './pages/Signup';
-import Nav from './components/Nav';
+import Nav from './components/Nav/2';
 import { StoreProvider } from './state/GlobalState';
 import Profile from './pages/Profile';
 
