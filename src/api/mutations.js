@@ -21,3 +21,25 @@ export const ADD_USER = gql`
     }
   }
 `;
+
+export const QUERY_MANGA = gql`
+  query FindManga($name: String!) {
+    manga(name: $name) {
+      name
+      alternative
+      authors
+      status
+      genres
+      updated
+      rating {
+        ratingFromFive
+        votes
+      }
+      description
+      url
+      chapters {
+        chapter
+      }
+    }
+  }
+`;
