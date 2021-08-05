@@ -5,7 +5,7 @@ import { QUERY_CHAPTERS } from '../api/queries';
 
 const Home = () => {
   // const [mangaPanels, setMangaPanels] = useState([]);
-  const [link, setLink] = useState('https://readmanganato.com/manga-eh951664/chapter-264');
+  const [link, _setLink] = useState('https://readmanganato.com/manga-eh951664/chapter-264');
 
   const { loading, data } = useQuery(QUERY_CHAPTERS, { variables: { url: link } });
 
