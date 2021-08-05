@@ -10,3 +10,12 @@ export const QUERY_USER = gql`
     }
   }
 `;
+
+export const QUERY_CHAPTERS = gql`
+  query getChapters($url: String!) {
+    chapter(url: $url) {
+      uri
+      id
+    }
+  }
+`;
