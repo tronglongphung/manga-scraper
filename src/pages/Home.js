@@ -27,7 +27,7 @@ const Home = () => {
             <MediaCard />
 
             {data.chapter.map((panel) => {
-              return <img src={`${process.env.REACT_APP_BASEURL}${panel.uri}`} alt={panel.id}></img>;
+              return <img src={`${process.env.REACT_APP_BASEURL}${panel.uri}`} alt={panel.id} key={panel.id}></img>;
             })}
           </div>
 
