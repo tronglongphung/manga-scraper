@@ -1,10 +1,10 @@
-import React, { useEffect, useState } from 'react';
+import React, { useState } from 'react';
 import MediaCard from '../components/Card';
 import { useQuery } from '@apollo/client';
 import { QUERY_CHAPTERS } from '../api/queries';
 
 const Home = () => {
-  const [mangaPanels, setMangaPanels] = useState([]);
+  // const [mangaPanels, setMangaPanels] = useState([]);
   const [link, setLink] = useState('https://readmanganato.com/manga-eh951664/chapter-264');
 
   const { loading, data } = useQuery(QUERY_CHAPTERS, { variables: { url: link } });
