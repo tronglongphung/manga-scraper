@@ -1,37 +1,34 @@
 import React, { useState } from 'react';
 import MediaCard from '../components/Card';
 import { useQuery } from '@apollo/client';
-import { QUERY_CHAPTERS } from '../api/queries';
+import { QUERY_MANGAS } from '../api/queries';
 
 const Home = () => {
-  // const [mangaPanels, setMangaPanels] = useState([]);
-  const [link] = useState('https://readmanganato.com/manga-eh951664/chapter-264');
-
-  const { loading, data } = useQuery(QUERY_CHAPTERS, { variables: { url: link } });
+  const [link] = useState('https://readmanganato.com/manga-eh951664/');
+  const { loading, data } = useQuery(QUERY_MANGAS, { variables: { url: link } });
 
   if (loading) {
     return 'loading';
   }
+  console.log(data);
 
   return (
     <>
       <header className="bg-white shadow">
-        <div className="max-w-7xl mx-auto py-6 px-4 sm:px-6 lg:px-8">
+        <div className="max-w-7xl mx-auto py-6 px-4 sm:px-6 lg:px-8 ">
           <h1 className="text-3xl font-bold text-gray-900">Home</h1>
         </div>
       </header>
       <main>
         <div className="max-w-7xl mx-auto py-6 sm:px-6 lg:px-8">
-          {/* Replace with your content */}
           <div className="px-4 py-6 sm:px-0">
-            <MediaCard />
-
-            {data.chapter.map((panel) => {
-              return <img src={`${process.env.REACT_APP_BASEURL}${panel.uri}`} alt={panel.id} key={panel.id}></img>;
-            })}
+            {/* should add name, latest chapter, cover img */}
+            <MediaCard
+              name={data.mangaData.name}
+              url={data.mangaData.url}
+              latest={data.mangaData.chapters[0].chapter}
+            />
           </div>
-
-          {/* /End replace */}
         </div>
       </main>
     </>

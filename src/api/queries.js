@@ -15,7 +15,9 @@ export const QUERY_MANGAS = gql`
   query getMangas($url: String!) {
     mangaData(url: $url) {
       name
-      status
+      chapters {
+        chapter
+      }
       url
     }
   }

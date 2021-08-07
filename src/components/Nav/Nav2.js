@@ -3,6 +3,7 @@ import { Disclosure, Menu, Transition } from '@headlessui/react';
 import { MenuIcon, XIcon } from '@heroicons/react/outline';
 import Auth from '../../state/auth';
 import { Link } from 'react-router-dom';
+import SearchBox from '../Search';
 
 const navigation = [
   { name: 'Home', href: '/', current: false },
@@ -20,6 +21,27 @@ function classNames(...classes) {
 
 // TODO: adding darkmode to dropdown
 export default function Nav() {
+  function showLogin() {
+    if (!Auth.loggedIn()) {
+      return (
+        <>
+          {login.map((item) => (
+            <Link
+              key={item.name}
+              to={item.href}
+              className={classNames(
+                item.current ? 'bg-gray-900 text-white' : 'text-gray-300 hover:bg-gray-700 hover:text-white',
+                'block px-3 py-2 rounded-md text-base font-medium'
+              )}
+              aria-current={item.current ? 'page' : undefined}
+            >
+              {item.name}
+            </Link>
+          ))}
+        </>
+      );
+    }
+  }
   function showDropdown() {
     if (Auth.loggedIn()) {
       return (
@@ -84,7 +106,7 @@ export default function Nav() {
     } else {
       return (
         <>
-          <div className="flex space-x-4">
+          <div className="hidden sm:block space-x-4">
             {login.map((item) => (
               <Link
                 key={item.name}
@@ -127,12 +149,7 @@ export default function Nav() {
                     Hearts
                   </a>
                   <img
-                    className="block lg:hidden h-8 w-auto"
-                    src="https://img.icons8.com/color/50/000000/hearts.png"
-                    alt="Hearts"
-                  />
-                  <img
-                    className="hidden lg:block h-8 w-auto"
+                    className="hidden sm:block h-8 w-auto"
                     src="https://img.icons8.com/color/50/000000/hearts.png"
                     alt="Hearts"
                   />
@@ -155,6 +172,9 @@ export default function Nav() {
                   </div>
                 </div>
               </div>
+
+              <SearchBox />
+
               <div className="absolute inset-y-0 right-0 flex items-center pr-2 sm:static sm:inset-auto sm:ml-6 sm:pr-0">
                 {/* Profile dropdown */}
                 {showDropdown()}
@@ -177,6 +197,7 @@ export default function Nav() {
                   {item.name}
                 </a>
               ))}
+              {showLogin()}
             </div>
           </Disclosure.Panel>
         </>

@@ -11,6 +11,8 @@ import Nav from './components/Nav/Nav2';
 import Saved from './pages/Saved';
 import { StoreProvider } from './state/GlobalState';
 import Profile from './pages/Profile';
+import Reader from './pages/Reader';
+import MangaDetails from './pages/MangaDetails';
 
 const httpLink = createHttpLink({
   uri: process.env.REACT_APP_BASEURL + '/graphql',
@@ -40,6 +42,13 @@ function App() {
             <Nav />
             <Switch>
               <Route exact path="/" component={Home} />
+              <Route exact path="/manga/:key" children={<MangaDetails />} />
+
+              {/* <Route path="/manga/:mangaKey/:mangaChapterKey" component={Reader} /> */}
+
+              {/* remove route reader soon */}
+              <Route exact path="/reader" component={Reader} />
+
               <Route exact path="/saved" component={Saved} />
               <Route exact path="/login" component={Login} />
               <Route exact path="/signup" component={Signup} />
