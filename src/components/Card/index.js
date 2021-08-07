@@ -14,6 +14,9 @@ const useStyles = makeStyles({
   media: {
     height: 150,
   },
+  font: {
+    fontSize: '2vh',
+  },
 });
 
 export default function MediaCard(props) {
@@ -21,20 +24,16 @@ export default function MediaCard(props) {
 
   return (
     <>
-      <Card className={classes.root}>
+      <Card className={`${classes.root} mx-2`}>
         <CardActionArea>
           {/* Link to location */}
           <Link to={`/manga/${props.url}`}>
-            <CardMedia
-              className={classes.media}
-              image="https://avt.mkklcdnv6temp.com/12/p/1-1583464155.jpg"
-              title="Black Clover"
-            />
+            <CardMedia className={classes.media} image={props.cover} title={props.name} />
             <CardContent>
-              <Typography gutterBottom variant="h6" component="h2">
+              <Typography gutterBottom variant="h6" component="h2" className={classes.font}>
                 {props.name}
               </Typography>
-              <Typography variant="body2" color="textSecondary" component="p">
+              <Typography className={classes.font} variant="body2" color="textSecondary" component="p">
                 {/* Latest chapter */}
                 {props.latest}
               </Typography>
