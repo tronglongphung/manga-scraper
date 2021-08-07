@@ -1,5 +1,5 @@
-import React, { useState } from 'react';
-import { Route, Link, useParams } from 'react-router-dom';
+// import { useState } from 'react';
+import { useParams } from 'react-router-dom';
 import { useQuery } from '@apollo/client';
 import { QUERY_MANGA_DETAILS } from '../api/queries';
 
