@@ -8,6 +8,7 @@ module.exports = {
     content: ['./src/pages/**/*.{js,jsx,ts,tsx}', './src/components/**/*.{js,jsx,ts,tsx}'],
     // These options are passed through directly to PurgeCSS
   },
+  plugins: [require('@tailwindcss/forms')],
   theme: {
     extend: {},
   },
@@ -19,7 +20,6 @@ module.exports = {
       zIndex: ['hover', 'active'],
     },
   },
-  plugins: [],
   future: {
     purgeLayersByDefault: true,
   },
