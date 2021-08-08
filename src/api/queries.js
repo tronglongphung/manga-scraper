@@ -15,10 +15,11 @@ export const QUERY_MANGAS = gql`
   query getMangas($url: String!) {
     mangaData(url: $url) {
       name
+      coverImg
+      url
       chapters {
         chapter
       }
-      url
     }
   }
 `;
@@ -28,6 +29,20 @@ export const QUERY_MANGA_DATA = gql`
     mangaData(url: $url) {
       name
       status
+    }
+  }
+`;
+
+export const QUERY_SEARCH_MANGA = gql`
+  query getMangaData($name: String!) {
+    mangas(name: $name) {
+      name
+      # coverImg
+      url
+      chapters {
+        chapter
+        url
+      }
     }
   }
 `;

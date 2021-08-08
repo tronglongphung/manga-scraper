@@ -11,6 +11,7 @@ const Reader = () => {
   if (loading) {
     return 'loading';
   }
+  // console.log(data);
 
   return (
     <>
