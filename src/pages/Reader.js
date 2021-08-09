@@ -22,7 +22,6 @@ const Reader = () => {
       </header>
       <main>
         <div className="max-w-7xl mx-auto py-6 sm:px-6 lg:px-8">
-          {/* move this to Reader.js */}
           {data.chapter.map((panel) => {
             return <img src={`${process.env.REACT_APP_BASEURL}${panel.uri}`} alt={panel.id} key={panel.id}></img>;
           })}

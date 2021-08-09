@@ -2,7 +2,7 @@ import { Fragment } from 'react';
 import { Disclosure, Menu, Transition } from '@headlessui/react';
 import { MenuIcon, XIcon } from '@heroicons/react/outline';
 import Auth from '../../state/auth';
-import { NavLink as Link } from 'react-router-dom';
+import { NavLink, Link, useLocation } from 'react-router-dom';
 import SearchBox from '../Search';
 
 const navigation = [
@@ -21,6 +21,8 @@ function classNames(...classes) {
 
 // TODO: adding darkmode to dropdown
 export default function Nav() {
+  // planning to make this state for current nav
+  const location = useLocation();
   function showLogin() {
     if (!Auth.loggedIn()) {
       return (
@@ -157,17 +159,19 @@ export default function Nav() {
                 <div className="hidden sm:block sm:ml-6">
                   <div className="flex space-x-4">
                     {navigation.map((item) => (
-                      <Link
+                      <NavLink
                         key={item.name}
                         to={item.href}
                         className={classNames(
-                          item.current ? 'bg-gray-900 text-white' : 'text-gray-300 hover:bg-gray-700 hover:text-white',
+                          item.href === location.pathname
+                            ? 'bg-gray-900 text-white'
+                            : 'text-gray-300 hover:bg-gray-700 hover:text-white',
                           'px-3 py-2 rounded-md text-sm font-medium'
                         )}
                         aria-current={item.current ? 'page' : undefined}
                       >
                         {item.name}
-                      </Link>
+                      </NavLink>
                     ))}
                   </div>
                 </div>

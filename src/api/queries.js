@@ -37,7 +37,7 @@ export const QUERY_SEARCH_MANGA = gql`
   query getMangaData($name: String!) {
     mangas(name: $name) {
       name
-      # coverImg
+      coverImg
       url
       chapters {
         chapter

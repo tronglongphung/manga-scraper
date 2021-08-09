@@ -9,13 +9,33 @@ import { Link } from 'react-router-dom';
 
 const useStyles = makeStyles({
   root: {
-    width: 170,
+    minWidth: 170,
+    maxWidth: 170,
   },
   media: {
-    height: 150,
+    minHeight: 150,
+    maxHeight: 150,
   },
   font: {
-    fontSize: '2vh',
+    fontSize: '.9rem',
+    lineHeight: '1.5',
+  },
+  subheading: {
+    whiteSpace: 'nowrap',
+    overflow: 'hidden',
+    textOverflow: 'ellipsis',
+    bottom: '0px',
+  },
+  link: {
+    height: '100%',
+    display: 'flex',
+    flexDirection: 'column',
+  },
+  cardcontent: {
+    justifyContent: 'space-between',
+    height: '100%',
+    display: 'flex',
+    flexDirection: 'column',
   },
 });
 
@@ -24,16 +44,16 @@ export default function MediaCard(props) {
 
   return (
     <>
-      <Card className={`${classes.root} mx-2`}>
-        <CardActionArea>
+      <Card className={`${classes.root} overflow-y-scroll m-2`}>
+        <CardActionArea style={{ height: '100%' }}>
           {/* Link to location */}
-          <Link to={`/manga/${props.url}`}>
+          <Link to={`/manga/${props.url}`} className={classes.link}>
             <CardMedia className={classes.media} image={props.cover} title={props.name} />
-            <CardContent>
+            <CardContent className={classes.cardcontent}>
               <Typography gutterBottom variant="h6" component="h2" className={classes.font}>
                 {props.name}
               </Typography>
-              <Typography className={classes.font} variant="body2" color="textSecondary" component="p">
+              <Typography className={classes.subheading} variant="body2" color="textSecondary" component="p">
                 {/* Latest chapter */}
                 {props.latest}
               </Typography>
