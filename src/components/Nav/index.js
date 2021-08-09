@@ -151,7 +151,8 @@ export default function Nav() {
                     Hearts
                   </a>
                   <img
-                    className="hidden sm:block h-8 w-auto"
+                    className="hidden sm:block "
+                    style={{ width: '32px', height: '32px' }}
                     src="https://img.icons8.com/color/50/000000/hearts.png"
                     alt="Hearts"
                   />
