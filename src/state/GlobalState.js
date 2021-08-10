@@ -8,6 +8,7 @@ const StoreProvider = ({ value = [], ...props }) => {
   const [state, dispatch] = useMangaReducer({
     mangas: [],
     loadingManga: false,
+    wishlist: [],
   });
 
   return <Provider value={[state, dispatch]} {...props} />;

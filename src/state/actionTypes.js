@@ -1,2 +1,4 @@
 export const ADD_MANGA = 'ADD_MANGA';
 export const LOADING_MANGA = 'LOADING_MANGA';
+export const SAVE_TO_WISHLIST = 'SAVE_TO_WISHLIST';
+export const REMOVE_FROM_WISHLIST = 'REMOVE_FROM_WISHLIST';

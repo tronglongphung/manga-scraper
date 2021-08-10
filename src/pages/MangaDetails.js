@@ -27,8 +27,8 @@ export default function MangaDetails() {
       <div className="max-w-7xl mx-auto py-6 px-6 lg:px-8 grid grid-cols-4 gap-4">
         <img src={location.state.coverImg} alt={data.manga.name} width="190px" />
         <div className="col-start-2 col-end-5  ">
-          <div className="bg-white rounded-2xl p-2 sm:px-10 sm:py-8 shadow-md transition duration-500 justify-self-stretch">
-            <div className="text-md sm:text-lg sm:mt-4 text-gray-800  ">
+          <div className=" p-2 sm:px-10 sm:py-8  transition duration-500 justify-self-stretch">
+            <div className="text-md sm:mt-4 text-gray-800  ">
               Alternative names: {data.manga.alternative.join(', ')}
             </div>
             <div className="text-md sm:mt-4 text-gray-800  ">Authors: {data.manga.authors.join(', ')}</div>

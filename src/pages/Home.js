@@ -1,10 +1,14 @@
 import React from 'react';
 import MediaCard from '../components/Card';
 import { useStoreContext } from '../state/GlobalState';
+// import Auth from '../state/auth';
 
 const Home = () => {
   const [state] = useStoreContext();
-
+  // function favouriteButton() {
+  //   if (!Auth.loggedIn()) {
+  //     return()
+  // } return()
   return (
     <>
       <header className="bg-white shadow">
