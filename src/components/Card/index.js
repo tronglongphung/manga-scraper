@@ -11,10 +11,11 @@ const useStyles = makeStyles({
   root: {
     minWidth: 170,
     maxWidth: 170,
+    minHeight: 260,
+    maxHeight: 260,
   },
   media: {
-    minHeight: 150,
-    maxHeight: 150,
+    height: 150,
   },
   font: {
     fontSize: '.9rem',
@@ -45,7 +46,7 @@ export default function MediaCard(props) {
   return (
     <>
       <Card className={`${classes.root} overflow-y-scroll m-2`}>
-        <CardActionArea style={{ height: '100%' }}>
+        <CardActionArea>
           <Link
             to={{ pathname: `/manga/${props.url}`, state: { coverImg: `${props.cover}` } }}
             className={classes.link}

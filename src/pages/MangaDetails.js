@@ -8,7 +8,13 @@ export default function MangaDetails() {
   const { loading, data } = useQuery(QUERY_MANGA_DETAILS, { variables: { key: `${key}` } });
 
   if (loading) {
-    return 'loading';
+    return (
+      <div className="max-w-7xl mx-auto py-6 sm:px-6 lg:px-8">
+        <div className="flex flex-wrap px-4 py-6 sm:px-0">
+          <img src="https://c.tenor.com/RVvnVPK-6dcAAAAM/reload-cat.gif" alt="loading" width="200px" height="200px" />
+        </div>
+      </div>
+    );
   }
   //   console.log(data.manga);
   return (
@@ -18,13 +24,15 @@ export default function MangaDetails() {
           <h1 className="text-3xl font-bold text-gray-900">{data.manga.name}</h1>
         </div>
       </header>
-      <div className="grid-container">
-        <div className="max-w-7xl mx-auto py-6 sm:px-6 lg:px-8 flex">
-          <img src={location.state.coverImg} alt={data.manga.name} className="grid-cover-img" />
-          <div className="grid-manga-details">
-            <div>Alternative names: {data.manga.alternative.join(', ')}</div>
-            <div>Authors: {data.manga.authors.join(', ')}</div>
-            <div>Genres: {data.manga.genres.join(', ')}</div>
+      <div className="max-w-7xl mx-auto py-6 px-6 lg:px-8 grid grid-cols-4 gap-4">
+        <img src={location.state.coverImg} alt={data.manga.name} width="190px" />
+        <div className="col-start-2 col-end-5  ">
+          <div className="bg-white rounded-2xl p-2 sm:px-10 sm:py-8 shadow-md transition duration-500 justify-self-stretch">
+            <div className="text-md sm:text-lg sm:mt-4 text-gray-800  ">
+              Alternative names: {data.manga.alternative.join(', ')}
+            </div>
+            <div className="text-md sm:mt-4 text-gray-800  ">Authors: {data.manga.authors.join(', ')}</div>
+            <div className="text-md sm:mt-4 text-gray-800  ">Genres: {data.manga.genres.join(', ')}</div>
           </div>
         </div>
       </div>
@@ -44,13 +52,13 @@ export default function MangaDetails() {
 
                     <th
                       scope="col"
-                      className="px-6 py-3 text-left text-xs font-medium text-gray-300 uppercase tracking-wider"
+                      className=" px-6 py-3 text-left text-xs font-medium text-gray-300 uppercase tracking-wider"
                     >
                       Views
                     </th>
                     <th
                       scope="col"
-                      className="px-6 py-3 text-left text-xs font-medium text-gray-300 uppercase tracking-wider"
+                      className="invisible sm:visible px-6 py-3 text-left text-xs font-medium text-gray-300 uppercase tracking-wider"
                     >
                       Date
                     </th>
@@ -73,12 +81,14 @@ export default function MangaDetails() {
                         </div>
                       </td>
 
-                      <td className="px-6 py-4 whitespace-nowrap">
+                      <td className="px-6 py-4 whitespace-nowrap ">
                         <span className="px-2 inline-flex text-xs leading-5 font-semibold rounded-full bg-green-50 text-gray-800">
                           {chapter.views}
                         </span>
                       </td>
-                      <td className="px-6 py-4 whitespace-nowrap text-sm text-gray-500">{chapter.upload_date}</td>
+                      <td className="px-6 py-4 whitespace-nowrap text-sm text-gray-500 invisible sm:visible  ">
+                        {chapter.upload_date}
+                      </td>
                     </tr>
                   ))}
                 </tbody>

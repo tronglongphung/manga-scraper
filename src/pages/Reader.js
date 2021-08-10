@@ -9,7 +9,13 @@ const Reader = () => {
   const { loading, data } = useQuery(QUERY_CHAPTERS, { variables: { url: link } });
 
   if (loading) {
-    return 'loading';
+    return (
+      <div className="max-w-7xl mx-auto py-6 sm:px-6 lg:px-8">
+        <div className="flex flex-wrap px-4 py-6 sm:px-0">
+          <img src="https://c.tenor.com/RVvnVPK-6dcAAAAM/reload-cat.gif" alt="loading" width="200px" height="200px" />
+        </div>
+      </div>
+    );
   }
   // console.log(data);
 
@@ -17,7 +23,7 @@ const Reader = () => {
     <>
       <header className="bg-white shadow">
         <div className="max-w-7xl mx-auto py-6 px-4 sm:px-6 lg:px-8">
-          <h1 className="text-3xl font-bold text-gray-900">(Manga Name here)</h1>
+          <h1 className="text-3xl font-bold text-gray-900">Black Clover</h1>
         </div>
       </header>
       <main>
