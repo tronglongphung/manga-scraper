@@ -46,15 +46,16 @@ export default function MediaCard(props) {
     <>
       <Card className={`${classes.root} overflow-y-scroll m-2`}>
         <CardActionArea style={{ height: '100%' }}>
-          {/* Link to location */}
-          <Link to={`/manga/${props.url}`} className={classes.link}>
+          <Link
+            to={{ pathname: `/manga/${props.url}`, state: { coverImg: `${props.cover}` } }}
+            className={classes.link}
+          >
             <CardMedia className={classes.media} image={props.cover} title={props.name} />
             <CardContent className={classes.cardcontent}>
               <Typography gutterBottom variant="h6" component="h2" className={classes.font}>
                 {props.name}
               </Typography>
               <Typography className={classes.subheading} variant="body2" color="textSecondary" component="p">
-                {/* Latest chapter */}
                 {props.latest}
               </Typography>
             </CardContent>

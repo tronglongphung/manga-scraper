@@ -1,16 +1,16 @@
-import { useParams } from 'react-router-dom';
+import { useParams, useLocation } from 'react-router-dom';
 import { useQuery } from '@apollo/client';
 import { QUERY_MANGA_DETAILS } from '../api/queries';
-
 export default function MangaDetails() {
   let { key } = useParams();
+  const location = useLocation();
+  // console.log(location.state);
   const { loading, data } = useQuery(QUERY_MANGA_DETAILS, { variables: { key: `${key}` } });
 
   if (loading) {
     return 'loading';
   }
   //   console.log(data.manga);
-
   return (
     <>
       <header className="bg-white shadow">
@@ -18,13 +18,15 @@ export default function MangaDetails() {
           <h1 className="text-3xl font-bold text-gray-900">{data.manga.name}</h1>
         </div>
       </header>
-      <div className="max-w-7xl mx-auto py-6 sm:px-6 lg:px-8">
-        <div>INFOS HERE</div>
-        {/* name
-            alternative
-            authors
-            genres
-            url */}
+      <div className="grid-container">
+        <div className="max-w-7xl mx-auto py-6 sm:px-6 lg:px-8 flex">
+          <img src={location.state.coverImg} alt={data.manga.name} className="grid-cover-img" />
+          <div className="grid-manga-details">
+            <div>Alternative names: {data.manga.alternative.join(', ')}</div>
+            <div>Authors: {data.manga.authors.join(', ')}</div>
+            <div>Genres: {data.manga.genres.join(', ')}</div>
+          </div>
+        </div>
       </div>
       <div className="flex flex-col">
         <div className="-my-2 overflow-x-auto sm:-mx-6 lg:-mx-8">

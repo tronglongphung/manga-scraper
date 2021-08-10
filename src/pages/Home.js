@@ -15,15 +15,19 @@ const Home = () => {
       <main>
         <div className="max-w-7xl mx-auto py-6 sm:px-6 lg:px-8">
           <div className="flex flex-wrap px-4 py-6 sm:px-0">
-            {state.loadingManga && <div>Loading</div>}
+            {state.loadingManga && (
+              <img src="https://c.tenor.com/RVvnVPK-6dcAAAAM/reload-cat.gif" alt="loading meme"></img>
+            )}
             {state.mangas.length > 0 &&
               state.mangas.map((manga) => (
-                <MediaCard
-                  cover={manga.coverImg}
-                  name={manga.name}
-                  url={manga.url}
-                  latest={manga.chapters[0].chapter}
-                />
+                <div key={manga.name}>
+                  <MediaCard
+                    cover={manga.coverImg}
+                    name={manga.name}
+                    url={manga.url}
+                    latest={manga.chapters[0].chapter}
+                  />
+                </div>
               ))}
           </div>
         </div>
