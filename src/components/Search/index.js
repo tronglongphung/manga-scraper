@@ -12,7 +12,7 @@ export default function SearchBox() {
 
   useEffect(() => {
     // console.log({ data });
-    dispatch({ type: ADD_MANGA, data: data?.mangas });
+    dispatch({ type: ADD_MANGA, data: data.mangas });
   }, [data, dispatch]);
 
   useEffect(() => {

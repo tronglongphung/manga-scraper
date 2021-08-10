@@ -16,7 +16,12 @@ const Home = () => {
         <div className="max-w-7xl mx-auto py-6 sm:px-6 lg:px-8">
           <div className="flex flex-wrap px-4 py-6 sm:px-0">
             {state.loadingManga && (
-              <img src="https://c.tenor.com/RVvnVPK-6dcAAAAM/reload-cat.gif" alt="loading meme"></img>
+              <img
+                src="https://c.tenor.com/RVvnVPK-6dcAAAAM/reload-cat.gif"
+                alt="loading"
+                width="200px"
+                height="200px"
+              />
             )}
             {state.mangas.length > 0 &&
               state.mangas.map((manga) => (
