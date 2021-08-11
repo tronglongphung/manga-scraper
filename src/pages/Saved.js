@@ -53,7 +53,7 @@ export default function Saved() {
         ) : (
           <>
             {catMemes()}
-            <p className="pt-2">You have saved nothing</p>
+            <p className="pt-2">You have saved NOTHING</p>
           </>
         )}
       </>
