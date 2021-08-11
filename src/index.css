@@ -2,23 +2,6 @@
 @tailwind components;
 @tailwind utilities;
 
-.grid-container {
-    grid-template-columns: 100px auto;
-    grid-template-rows: 50px 50px ; 
-    column-gap: 10px;
-    row-gap: 10px;
-}
-
-.grid-cover-img {
-    grid-column-start: 1;
-    grid-column-end: 2;
-    grid-row-start: 1;
-    grid-row-end: 2;
-}
-
-.grid-manga-details{
-    grid-column-start: 2;
-    grid-column-end: 3;
-    grid-row-start: 1;
-    grid-row-end: 2;
+body{
+    overflow-x: hidden;
 }

@@ -1,9 +1,8 @@
-import { useParams, useLocation } from 'react-router-dom';
+import { useParams } from 'react-router-dom';
 import { useQuery } from '@apollo/client';
 import { QUERY_MANGA_DETAILS } from '../api/queries';
 export default function MangaDetails() {
   let { key } = useParams();
-  const location = useLocation();
   // console.log(location.state);
   const { loading, data } = useQuery(QUERY_MANGA_DETAILS, { variables: { key: `${key}` } });
 
@@ -16,7 +15,7 @@ export default function MangaDetails() {
       </div>
     );
   }
-  //   console.log(data.manga);
+  // console.log(data);
   return (
     <>
       <header className="bg-white shadow">
@@ -25,7 +24,7 @@ export default function MangaDetails() {
         </div>
       </header>
       <div className="max-w-7xl mx-auto py-6 px-6 lg:px-8 grid grid-cols-4 gap-4">
-        <img src={location.state.coverImg} alt={data.manga.name} width="190px" />
+        <img src={data.manga.coverImg} alt={data.manga.name} width="190px" />
         <div className="col-start-2 col-end-5  ">
           <div className=" p-2 sm:px-10 sm:py-8  transition duration-500 justify-self-stretch">
             <div className="text-md sm:mt-4 text-gray-800  ">
@@ -37,7 +36,7 @@ export default function MangaDetails() {
         </div>
       </div>
       <div className="flex flex-col">
-        <div className="-my-2 overflow-x-auto sm:-mx-6 lg:-mx-8">
+        <div className="-my-2 sm:-mx-6 lg:-mx-8">
           <div className="py-2 align-middle inline-block min-w-full sm:px-6 lg:px-8">
             <div className="shadow overflow-hidden border-b border-gray-200">
               <table className="min-w-full divide-y divide-gray-200">
@@ -58,7 +57,7 @@ export default function MangaDetails() {
                     </th>
                     <th
                       scope="col"
-                      className="invisible sm:visible px-6 py-3 text-left text-xs font-medium text-gray-300 uppercase tracking-wider"
+                      className=" px-6 py-3 text-left text-xs font-medium text-gray-300 uppercase tracking-wider"
                     >
                       Date
                     </th>
@@ -67,9 +66,8 @@ export default function MangaDetails() {
 
                 <tbody className="bg-white divide-y divide-gray-200">
                   {data.manga.chapters.map((chapter) => (
-                    // add link to chapter here
                     <tr key={chapter.chapter}>
-                      <td className="px-6 py-4 whitespace-nowrap">
+                      <td className="px-6 py-4 whitespace-nowrap min-w-0 sm:min-w-xs">
                         <div className="flex items-center">
                           <div className="ml-4">
                             <div className="text-sm font-medium text-gray-900">
@@ -86,9 +84,7 @@ export default function MangaDetails() {
                           {chapter.views}
                         </span>
                       </td>
-                      <td className="px-6 py-4 whitespace-nowrap text-sm text-gray-500 invisible sm:visible  ">
-                        {chapter.upload_date}
-                      </td>
+                      <td className="px-6 py-4 whitespace-nowrap text-sm text-gray-500">{chapter.upload_date}</td>
                     </tr>
                   ))}
                 </tbody>

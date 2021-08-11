@@ -11,28 +11,21 @@ export const QUERY_USER = gql`
   }
 `;
 
-export const QUERY_MANGAS = gql`
-  query getMangas($url: String!) {
-    mangaData(url: $url) {
+export const QUERY_ALL = gql`
+  query getLocal {
+    allLocalMangas {
       name
       coverImg
       url
       chapters {
         chapter
+        url
       }
     }
   }
 `;
 
-export const QUERY_MANGA_DATA = gql`
-  query getMangaData($url: String!) {
-    mangaData(url: $url) {
-      name
-      status
-    }
-  }
-`;
-
+// used in search
 export const QUERY_SEARCH_MANGA = gql`
   query getMangaData($name: String!) {
     mangas(name: $name) {
@@ -47,6 +40,7 @@ export const QUERY_SEARCH_MANGA = gql`
   }
 `;
 
+// used in manga details
 export const QUERY_MANGA_DETAILS = gql`
   query getMangaData($key: String!) {
     manga(key: $key) {
@@ -55,6 +49,7 @@ export const QUERY_MANGA_DETAILS = gql`
       authors
       status
       genres
+      coverImg
       rating {
         ratingFromFive
         votes
@@ -72,6 +67,7 @@ export const QUERY_MANGA_DETAILS = gql`
   }
 `;
 
+// used in reader
 export const QUERY_CHAPTERS = gql`
   query getChapters($url: String!) {
     chapter(url: $url) {

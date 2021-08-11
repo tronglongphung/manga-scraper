@@ -4,6 +4,7 @@ import { MenuIcon, XIcon } from '@heroicons/react/outline';
 import Auth from '../../state/auth';
 import { NavLink, Link, useLocation } from 'react-router-dom';
 import SearchBox from '../Search';
+import logo from './image0.PNG';
 
 const navigation = [
   { name: 'Home', href: '/', current: false },
@@ -56,8 +57,8 @@ export default function Nav() {
                   <img
                     // profile image
                     className="h-8 w-8 rounded-full"
-                    src="https://images.unsplash.com/photo-1472099645785-5658abf4ff4e?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=facearea&facepad=2&w=256&h=256&q=80"
-                    alt=""
+                    src={logo}
+                    alt="logo"
                   />
                 </Menu.Button>
               </div>
