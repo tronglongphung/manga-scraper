@@ -1,6 +1,7 @@
 import { useParams } from 'react-router-dom';
 import { useQuery } from '@apollo/client';
 import { QUERY_MANGA_DETAILS } from '../api/queries';
+
 export default function MangaDetails() {
   let { key } = useParams();
   // console.log(location.state);

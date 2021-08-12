@@ -47,14 +47,12 @@ const useStyles = makeStyles({
 });
 
 export default function MediaCard(props) {
-  const [state, dispatch] = useStoreContext();
-
   const classes = useStyles();
   return (
     <>
-      <Card className={`${classes.root} overflow-y-scroll m-2`}>
+      <Card className={`${classes.root} overflow-y-scroll m-2.5`}>
         <CardMedia className={classes.media} image={props.cover} title={props.name}>
-          <FavouriteButton mangaId={props.url} />
+          <FavouriteButton mangaId={props.id} />
         </CardMedia>
         <CardActionArea>
           <Link to={`/manga/${props.url}`} className={`${classes.link} hover:text-indigo-600`}>

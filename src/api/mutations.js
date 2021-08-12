@@ -22,23 +22,21 @@ export const ADD_USER = gql`
   }
 `;
 
-export const QUERY_MANGA = gql`
-  query FindManga($name: String!) {
-    manga(name: $name) {
-      name
-      alternative
-      authors
-      status
-      genres
-      updated
-      rating {
-        ratingFromFive
-        votes
+export const ADD_TO_FAVOURITES = gql`
+  mutation findManga($id: ID!) {
+    addFavourite(id: $id) {
+      savedManga {
+        _id
       }
-      description
-      url
-      chapters {
-        chapter
+    }
+  }
+`;
+
+export const REMOVE_FROM_FAVOURITES = gql`
+  mutation removeManga($id: ID!) {
+    removeFavourite(id: $id) {
+      savedManga {
+        _id
       }
     }
   }

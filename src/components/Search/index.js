@@ -1,10 +1,12 @@
 import { useLazyQuery } from '@apollo/client';
 import { useEffect, useState } from 'react';
+import { useHistory } from 'react-router-dom';
 import { QUERY_SEARCH_MANGA } from '../../api/queries';
 import { ADD_MANGA, LOADING_MANGA } from '../../state/actionTypes';
 import { useStoreContext } from '../../state/GlobalState';
 
 export default function SearchBox() {
+  const history = useHistory();
   const [search, setSearch] = useState('');
   const [, dispatch] = useStoreContext();
 
@@ -13,6 +15,9 @@ export default function SearchBox() {
   useEffect(() => {
     // console.log({ data });
     dispatch({ type: ADD_MANGA, data: data?.mangas });
+    if (data?.mangas) {
+      history.push('/');
+    }
   }, [data, dispatch]);
 
   useEffect(() => {
@@ -22,6 +27,7 @@ export default function SearchBox() {
 
   const submitSearch = async (e) => {
     e.preventDefault();
+    console.log('loading');
     await searchManga({ variables: { name: search } });
   };
 

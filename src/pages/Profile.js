@@ -14,14 +14,24 @@ const Profile = () => {
       </div>
     );
   }
-
   return (
-    <div>
-      <h1>Profile</h1>
-      <p>Name: {data.user.name}</p>
-      <p>Email: {data.user.email}</p>
-      <p>Favorite Manga: {data.user.savedManga.join(', ')}</p>
-    </div>
+    <>
+      <header className="bg-white shadow">
+        <div className="max-w-7xl mx-auto py-6 px-4 sm:px-6 lg:px-8 ">
+          <h1 className="text-3xl font-bold text-gray-900">Profile</h1>
+        </div>
+      </header>
+      <main>
+        <div className="max-w-7xl mx-auto py-6 sm:px-6 lg:px-8">
+          <div className="px-4 py-6 sm:px-0">
+            <p>Name: {data.user.name}</p>
+            <p>Email: {data.user.email}</p>
+            <p>Number of Favorited Mangas: {data.user.savedManga.length}</p>
+            <p>Favorite Manga: {data.user.savedManga.map((manga) => manga.name)}</p>
+          </div>
+        </div>
+      </main>
+    </>
   );
 };
 

@@ -3,11 +3,12 @@ import { ADD_MANGA, LOADING_MANGA, REMOVE_FROM_WISHLIST, SAVE_TO_WISHLIST } from
 // The reducer is a function that accepts the current state and an action. It returns a new state based on that action.
 export const reducer = (state, action) => {
   switch (action.type) {
-    case ADD_MANGA:
+    case ADD_MANGA: {
       return {
         ...state,
         mangas: action.data || [],
       };
+    }
 
     case LOADING_MANGA:
       return {

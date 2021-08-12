@@ -5,7 +5,16 @@ export const QUERY_USER = gql`
     user {
       _id
       name
-      savedManga
+      savedManga {
+        _id
+        name
+        coverImg
+        url
+        chapters {
+          chapter
+          url
+        }
+      }
       email
     }
   }
@@ -14,6 +23,7 @@ export const QUERY_USER = gql`
 export const QUERY_ALL = gql`
   query getLocal {
     allLocalMangas {
+      _id
       name
       coverImg
       url
@@ -29,6 +39,7 @@ export const QUERY_ALL = gql`
 export const QUERY_SEARCH_MANGA = gql`
   query getMangaData($name: String!) {
     mangas(name: $name) {
+      _id
       name
       coverImg
       url
@@ -44,6 +55,7 @@ export const QUERY_SEARCH_MANGA = gql`
 export const QUERY_MANGA_DETAILS = gql`
   query getMangaData($key: String!) {
     manga(key: $key) {
+      _id
       name
       alternative
       authors

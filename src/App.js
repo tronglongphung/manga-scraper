@@ -46,10 +46,6 @@ function App() {
 
               <Suspense fallback={<div>Loading...</div>}>
                 <Route exact path="/manga/:key" children={<MangaDetails />} />
-                {/* <Route path="/manga/:mangaKey/:mangaChapterKey" component={Reader} /> */}
-
-                {/* remove route reader soon */}
-                <Route exact path="/reader" component={Reader} />
                 <Route exact path="/saved" component={Saved} />
                 <Route exact path="/login" component={Login} />
                 <Route exact path="/signup" component={Signup} />
