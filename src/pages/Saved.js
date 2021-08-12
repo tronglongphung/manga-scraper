@@ -1,6 +1,5 @@
 import Auth from '../state/auth';
 import { Link } from 'react-router-dom';
-import { useStoreContext } from '../state/GlobalState';
 import MediaCard from '../components/Card';
 import { useQuery } from '@apollo/client';
 import { QUERY_USER } from '../api/queries';
@@ -13,7 +12,6 @@ const memes = [
   'https://i.pinimg.com/originals/1f/1c/24/1f1c24b03ca966d1b3037fd3f167e4d6.jpg',
 ];
 export default function Saved() {
-  const [state] = useStoreContext();
   const { data, loading } = useQuery(QUERY_USER);
 
   if (loading) {
@@ -25,13 +23,6 @@ export default function Saved() {
       </div>
     );
   }
-  console.log(data.user.savedManga);
-
-  const savedMangas = () => {
-    return state.mangas.filter((manga) => {
-      return state.wishlist.includes(manga._id);
-    });
-  };
 
   const catMemes = () => {
     const catImg = Math.floor(Math.random() * memes.length);
@@ -61,6 +52,7 @@ export default function Saved() {
                   name={manga.name}
                   url={manga.url}
                   latest={manga.chapters[0]?.chapter}
+                  id={manga._id}
                 />
               </div>
             ))}

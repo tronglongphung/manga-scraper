@@ -12,7 +12,6 @@ const Login = lazy(() => import('./pages/Login'));
 const Signup = lazy(() => import('./pages/Signup'));
 const Saved = lazy(() => import('./pages/Saved'));
 const Profile = lazy(() => import('./pages/Profile'));
-const Reader = lazy(() => import('./pages/Reader'));
 const MangaDetails = lazy(() => import('./pages/MangaDetails'));
 
 const httpLink = createHttpLink({

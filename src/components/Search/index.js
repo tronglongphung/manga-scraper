@@ -18,7 +18,7 @@ export default function SearchBox() {
     if (data?.mangas) {
       history.push('/');
     }
-  }, [data, dispatch]);
+  }, [data, dispatch, history]);
 
   useEffect(() => {
     // console.log({ data });

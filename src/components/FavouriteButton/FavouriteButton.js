@@ -1,3 +1,4 @@
+/* eslint-disable no-unused-vars */
 import { REMOVE_FROM_WISHLIST, SAVE_TO_WISHLIST } from '../../state/actionTypes';
 import { useStoreContext } from '../../state/GlobalState';
 import { useMutation } from '@apollo/client';
@@ -18,8 +19,13 @@ export default function FavouriteButton({ mangaId }) {
       dispatch({ type: REMOVE_FROM_WISHLIST, id });
     } else {
       console.log(`Added ${id} to wishlist`);
-      await addFavourite({ variables: { id } });
-      dispatch({ type: SAVE_TO_WISHLIST, id });
+      const {
+        data: {
+          addFavourite: { savedManga },
+        },
+      } = await addFavourite({ variables: { id } });
+      console.log(savedManga);
+      dispatch({ type: SAVE_TO_WISHLIST, id: savedManga.map(({ _id }) => _id) });
     }
   };
 

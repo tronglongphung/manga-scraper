@@ -19,7 +19,7 @@ export const reducer = (state, action) => {
     case SAVE_TO_WISHLIST:
       return {
         ...state,
-        wishlist: [...state.wishlist, action.id],
+        wishlist: [...state.wishlist, ...action.id],
       };
 
     case REMOVE_FROM_WISHLIST:
