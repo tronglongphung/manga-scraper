@@ -27,7 +27,7 @@ const Profile = () => {
             <p>Name: {data.user.name}</p>
             <p>Email: {data.user.email}</p>
             <p>Number of Favorited Mangas: {data.user.savedManga.length}</p>
-            <p>Favorite Manga: {data.user.savedManga.map((manga) => manga.name)}</p>
+            {/* <p>Favorite Manga: {data.user.savedManga.map((manga) => manga.name)}</p> */}
           </div>
         </div>
       </main>

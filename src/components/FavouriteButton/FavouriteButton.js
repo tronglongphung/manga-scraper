@@ -24,7 +24,7 @@ export default function FavouriteButton({ mangaId }) {
           addFavourite: { savedManga },
         },
       } = await addFavourite({ variables: { id } });
-      console.log(savedManga);
+      // console.log(savedManga);
       dispatch({ type: SAVE_TO_WISHLIST, id: savedManga.map(({ _id }) => _id) });
     }
   };
