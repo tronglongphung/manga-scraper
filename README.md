@@ -1,46 +1,74 @@
-## Project Requirements
+# Manga Reader
 
-Your group will use everything you’ve learned throughout this course to create a MERN stack single-page application that works with real-world data to solve a real-world challenge, with a focus on data and user demand. This project will provide you with the best opportunity to demonstrate your problem-solving skills, which employers will want to see during interviews. Once again, the user story and acceptance criteria will depend on the project that you create, but your project must fulfill the following requirements:
+## User Story
 
-- Use React for the front end.
+```
+As a Manga reader
 
-- Use GraphQL with a Node.js and Express.js server.
+I WANT an app that can let me read Mangas WITHOUT ADS
+SO THAT I can view my Mangas freely
 
-- Use MongoDB and the Mongoose ODM for the database.
+WHEN I click on a Home page
+THEN I am presented with a list of Mangas to choose
 
-- Use queries and mutations for retrieving, adding, updating, and deleting data.
+WHEN I click on a heart button
+THEN the manga will be added into the Saved page
 
-- Be deployed using Heroku (with data).
+WHEN I click on a Manga name
+THEN I see the details of that specific Manga and it's chapters
+```
 
-- Have a polished UI.
+---
 
-- Be responsive.
+## Tables of content:
 
-- Be interactive (i.e., accept and respond to user input).
+- [Description](#description)
+- [Technologies](#technologies)
+- [Usage](#usage)
+- [Further Improvements](#improvements)
+- [Questions](#questions)
 
-- Include authentication (JWT).
+---
 
-- Protect sensitive API key information on the server.
+## Description:
 
-- Have a clean repository that meets quality coding standards (file structure, naming conventions, best practices for class and id naming conventions, indentation, high-quality comments, etc.).
+The sports scheduler app allows users to follow local sporting teams around them using a social media like approach. Instead of trying to find which league a team plays in, to be able to find where theyre playing next or how theyve been playing, with the sport scheduler app you can simply follow a team that you're interested in, and on your dashboard that team will appear. This allows users to not only keep tabs on their own sporting teams, but potentially on mates and friends teams and you can see how they've been playing/their team is going. This app was designed with all users in mind, and its simple nature makes it perfect for social sports aswell, with future functionality to create your own leagues and teams.
+
+---
+
+## Technologies:
+
+- MERN STACK
+
+  - Front End: React, Tailwind, JWT, JavaScript, GraphQL
+  - Back End: Node, Express, MongoDB, GraphQL, APIs
+
+---
+
+## Usage:
+
+-                 Create an account on the applications site, find mangas, add them to your favourite and read them!
+
+---
+
+## Improvements:
+
+- A better favourite button UI
+- Adding images to the page instead of redirecting to other webpage
+
+---
+
+## Questions:
+
+For any further questions, contact the me at: tronglongphung@gmail.com
+
+Github Profile: [tronglongphung](https://github.com/tronglongphung)
+
+[![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](https://opensource.org/licenses/MIT)
+
+<!--  -->
 
 - Have a high-quality README (with unique name, description, technologies used, screenshot, and link to deployed application).
-
-### Payment Platform
-
-Consider integrating the Stripe payment platform. Even if you don’t create an e-commerce application, you could set up your site to accept charitable donations.
-
-### Bonus
-
-Although this is not a requirement for your project, see if you can also implement functionality to meet the minimum requirements of a PWA:
-
-- Uses a web manifest
-
-- Uses a service worker for offline functionality
-
-- Is installable
-
-## Presentation Requirements
 
 Use this [project presentation template](https://docs.google.com/presentation/d/10QaO9KH8HtUXj__81ve0SZcpO5DbMbqqQr4iPpbwKks/edit?usp=sharing) to address the following:
 
@@ -56,10 +84,6 @@ Use this [project presentation template](https://docs.google.com/presentation/d/
 
 - Links to the deployed application and the GitHub repository. Use the [Guide to Deploy with Heroku and MongoDB Atlas](https://coding-boot-camp.github.io/full-stack/mongodb/deploy-with-heroku-and-mongodb-atlas) on The Full-Stack Blog if you need a reminder on how to deploy to Heroku.
 
-## Grading Requirements
-
-This project is graded based on the following criteria:
-
 ### Technical Acceptance Criteria: 25%
 
 - Satisfies the following code requirements:
@@ -72,38 +96,6 @@ This project is graded based on the following criteria:
 
   - Application includes user authentication using JWT.
 
-### Concept 10%
-
-- Application should be a unique and novel idea.
-
-- Your group should clearly and concisely articulate your project idea.
-
-### Deployment: 20%
-
-- Application deployed at live URL on Heroku and loads with no errors.
-
-- Application GitHub URL submitted.
-
-### Repository Quality: 10%
-
-- Repository has a unique name.
-
-- Repository follows best practices for file structure and naming conventions.
-
-- Repository follows best practices for class and id naming conventions, indentation, quality comments, etc.
-
-- Repository contains multiple descriptive commit messages.
-
-- Repository contains a high-quality README file with description, screenshot, and link to deployed application.
-
-### Application Quality: 15%
-
-- Application user experience is intuitive and easy to navigate.
-
-- Application user interface style is clean and polished.
-
-- Application is responsive.
-
 ### Presentation 10%
 
 - Your group should present using Google Slides, Powerpoint, or a similar presentation software.
@@ -111,29 +103,3 @@ This project is graded based on the following criteria:
 - Every group member should speak during the presentation.
 
 - Your presentation should follow the [Project Presentation Template](https://docs.google.com/presentation/d/10QaO9KH8HtUXj__81ve0SZcpO5DbMbqqQr4iPpbwKks/edit?usp=sharing).
-
-### Collaboration 10%
-
-- There are no major disparities in the number of GitHub contributions between group members.
-
-### Bonus
-
-Fulfilling all three of the following requirements to turn your app into a PWA will add 10 points to your grade. Note that the highest grade you can achieve is still a 100:
-
-- Uses a web manifest
-
-- Uses a service worker for offline functionality
-
-- Is installable
-
-## How to Submit Your MERN Stack Single-Page Application
-
-**Each member of your group** is required to submit the following for review:
-
-- The URL of the deployed application.
-
-- The URL of the GitHub repository, with a unique name and a README describing the project.
-
----
-
-© 2021 Trilogy Education Services, LLC, a 2U, Inc. brand. Confidential and Proprietary. All Rights Reserved.
