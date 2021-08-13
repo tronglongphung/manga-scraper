@@ -1,19 +1,43 @@
-import React from 'react';
+import React, { useCallback, useEffect } from 'react';
 import MediaCard from '../components/Card';
 import Loading from '../components/Loading';
 import { useStoreContext } from '../state/GlobalState';
 import { useQuery } from '@apollo/client';
-import { QUERY_ALL } from '../api/queries';
+import { QUERY_ALL, QUERY_USER } from '../api/queries';
+import { PRELOAD_MANGA } from '../state/actionTypes';
 
 const Home = () => {
-  const [state] = useStoreContext();
-  const { data, loading } = useQuery(QUERY_ALL);
+  const [state, dispatch] = useStoreContext();
 
-  const isLoading = () => loading || state.mangaLoading;
+  const { data, loading } = useQuery(QUERY_USER);
+
+  const { data: queryAll, loading: queryLoading } = useQuery(QUERY_ALL);
+
+  const isLoading = () => loading || queryLoading || state.loadingManga;
 
   if (isLoading()) {
-    return <Loading />;
+    console.log('loading - home');
+    return (
+      <>
+        <header className="bg-white shadow">
+          <div className="max-w-7xl mx-auto py-6 px-4 sm:px-6 lg:px-8 ">
+            <h1 className="text-3xl font-bold text-gray-900">Home</h1>
+          </div>
+        </header>
+        <div className="max-w-7xl mx-auto py-6 sm:px-6 lg:px-8">
+          <div className="flex flex-wrap px-4 py-6 sm:px-0">
+            <Loading />
+          </div>
+        </div>
+      </>
+    );
   }
+
+  // useEffect(() => {
+  //   console.log(data);
+  //   console.log(data.user.savedManga);
+  //   dispatch({ type: PRELOAD_MANGA, id: data.user.savedManga });
+  // }, [data, dispatch]);
 
   return (
     <>
@@ -40,7 +64,7 @@ const Home = () => {
                 </div>
               ))
             ) : (
-              data.allLocalMangas.map((manga) => (
+              queryAll.allLocalMangas.map((manga) => (
                 <div key={manga.url}>
                   <MediaCard
                     id={manga._id}
