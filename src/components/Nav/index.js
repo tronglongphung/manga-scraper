@@ -83,7 +83,7 @@ export default function Nav() {
                         to="/profile"
                         className={classNames(active ? 'bg-gray-100' : '', 'block px-4 py-2 text-sm text-gray-700')}
                       >
-                        <Link to="/profile">Your Profile</Link>
+                        Your Profile
                       </Link>
                     )}
                   </Menu.Item>
@@ -91,13 +91,13 @@ export default function Nav() {
                   {/* logout */}
                   <Menu.Item>
                     {({ active }) => (
-                      <a
-                        href="/"
+                      <Link
+                        to="/"
                         onClick={() => Auth.logout()}
                         className={classNames(active ? 'bg-gray-100' : '', 'block px-4 py-2 text-sm text-gray-700')}
                       >
                         Log Out
-                      </a>
+                      </Link>
                     )}
                   </Menu.Item>
                 </Menu.Items>
@@ -191,9 +191,9 @@ export default function Nav() {
           <Disclosure.Panel className="sm:hidden">
             <div className="px-2 pt-2 pb-3 space-y-1">
               {navigation.map((item) => (
-                <a
+                <Link
                   key={item.name}
-                  href={item.href}
+                  to={item.href}
                   className={classNames(
                     item.current ? 'bg-gray-900 text-white' : 'text-gray-300 hover:bg-gray-700 hover:text-white',
                     'block px-3 py-2 rounded-md text-base font-medium'
@@ -201,7 +201,7 @@ export default function Nav() {
                   aria-current={item.current ? 'page' : undefined}
                 >
                   {item.name}
-                </a>
+                </Link>
               ))}
               {showLogin()}
             </div>
