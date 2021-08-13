@@ -47,7 +47,7 @@ The sports scheduler app allows users to follow local sporting teams around them
 
 ## Usage:
 
--                 Create an account on the applications site, find mangas, add them to your favourite and read them!
+- Create an account on the applications site, find mangas, add them to your favourite and read them!
 
 ---
 
