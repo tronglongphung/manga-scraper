@@ -1,5 +1,5 @@
 import { useReducer } from 'react';
-import { ADD_MANGA, LOADING_MANGA, REMOVE_FROM_WISHLIST, SAVE_TO_WISHLIST } from './actionTypes';
+import { PRELOAD_MANGA, ADD_MANGA, LOADING_MANGA, REMOVE_FROM_WISHLIST, SAVE_TO_WISHLIST } from './actionTypes';
 // The reducer is a function that accepts the current state and an action. It returns a new state based on that action.
 export const reducer = (state, action) => {
   switch (action.type) {
@@ -7,6 +7,15 @@ export const reducer = (state, action) => {
       return {
         ...state,
         mangas: action.data || [],
+      };
+    }
+
+    //struggling
+    case PRELOAD_MANGA: {
+      console.log(action);
+      return {
+        ...state,
+        wishlist: action.id.map(({ _id }) => _id),
       };
     }
 
