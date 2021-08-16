@@ -35,6 +35,8 @@ THEN I can read the manga without ADS
 
 ## Description:
 
+Manga Reader is a manga reading platform that scrapes data from other website down to save yourselves away from pop-up ads. As well as a platform to save your list of favourite Mangas so that you don't have to worry about the name of your favourite Manga that you read 5 years ago!
+
 ---
 
 ## Technologies:
@@ -52,7 +54,7 @@ THEN I can read the manga without ADS
 
 Homepage of the app ![homepage](./public/images/home.png)
 
-Returning a result from a search ![search](./public/images/search.png)
+Returning result from a search ![search](./public/images/search.png)
 
 After clicking on a heart button, it will be saved to Saved Manga ![saved](./public/images/saved.png)
 
