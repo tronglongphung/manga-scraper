@@ -7,6 +7,7 @@ import CardMedia from '@material-ui/core/CardMedia';
 import Typography from '@material-ui/core/Typography';
 import { Link } from 'react-router-dom';
 import FavouriteButton from '../FavouriteButton/FavouriteButton';
+import Auth from '../../state/auth';
 
 const useStyles = makeStyles({
   root: {
@@ -46,12 +47,18 @@ const useStyles = makeStyles({
 });
 
 export default function MediaCard(props) {
+  function showFavouriteButton() {
+    if (!Auth.loggedIn()) {
+      return;
+    }
+    return <FavouriteButton mangaId={props.id} />;
+  }
   const classes = useStyles();
   return (
     <>
       <Card className={`${classes.root} overflow-y-scroll m-2.5`}>
         <CardMedia className={classes.media} image={props.cover} title={props.name}>
-          <FavouriteButton mangaId={props.id} />
+          {showFavouriteButton()}
         </CardMedia>
         <CardActionArea>
           <Link to={`/manga/${props.url}`} className={`${classes.link} hover:text-indigo-600`}>
