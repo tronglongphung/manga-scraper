@@ -1,15 +1,15 @@
-import React, { useEffect } from 'react';
+import React from 'react';
 import MediaCard from '../components/Card';
 import Loading from '../components/Loading';
 import { useStoreContext } from '../state/GlobalState';
 import { useQuery } from '@apollo/client';
-import { QUERY_ALL, QUERY_USER } from '../api/queries';
-import { PRELOAD_MANGA } from '../state/actionTypes';
+import { QUERY_ALL } from '../api/queries';
+// import { PRELOAD_MANGA } from '../state/actionTypes';
 
 const Home = () => {
-  const [state, dispatch] = useStoreContext();
+  const [state] = useStoreContext();
 
-  const { data, loading } = useQuery(QUERY_USER);
+  // const { data, loading } = useQuery(QUERY_USER);
 
   const { data: queryAll, loading: queryLoading } = useQuery(QUERY_ALL);
   // useEffect(() => {
@@ -21,7 +21,7 @@ const Home = () => {
   //   dispatch({ type: PRELOAD_MANGA, id: data.user.savedManga });
   // }, [data, dispatch, loading]);
 
-  const isLoading = () => loading || queryLoading || state.loadingManga;
+  const isLoading = () => queryLoading || state.loadingManga;
 
   if (isLoading()) {
     console.log('loading - home');
