@@ -1,4 +1,4 @@
-import React, { useCallback, useEffect } from 'react';
+import React, { useEffect } from 'react';
 import MediaCard from '../components/Card';
 import Loading from '../components/Loading';
 import { useStoreContext } from '../state/GlobalState';
