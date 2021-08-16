@@ -12,14 +12,14 @@ const Home = () => {
   const { data, loading } = useQuery(QUERY_USER);
 
   const { data: queryAll, loading: queryLoading } = useQuery(QUERY_ALL);
-  useEffect(() => {
-    if (loading) {
-      return;
-    }
-    console.log(data);
-    console.log(data.user.savedManga);
-    dispatch({ type: PRELOAD_MANGA, id: data.user.savedManga });
-  }, [data, dispatch, loading]);
+  // useEffect(() => {
+  //   if (loading) {
+  //     return;
+  //   }
+  //   console.log(data);
+  //   console.log(data.user.savedManga);
+  //   dispatch({ type: PRELOAD_MANGA, id: data.user.savedManga });
+  // }, [data, dispatch, loading]);
 
   const isLoading = () => loading || queryLoading || state.loadingManga;
 
