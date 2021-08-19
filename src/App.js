@@ -42,10 +42,10 @@ function App() {
             <Nav />
             <Switch>
               <Route exact path="/" component={Home} />
+              <Route exact path="/saved" component={Saved} />
 
               <Suspense fallback={<div>Loading...</div>}>
                 <Route exact path="/manga/:key" children={<MangaDetails />} />
-                <Route exact path="/saved" component={Saved} />
                 <Route exact path="/login" component={Login} />
                 <Route exact path="/signup" component={Signup} />
                 <Route exact path="/profile" component={Profile} />
