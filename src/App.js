@@ -1,5 +1,5 @@
 import React, { Suspense, lazy } from 'react';
-import { BrowserRouter as Router, Route, Switch } from 'react-router-dom';
+import { HashRouter as Router, Route, Switch } from 'react-router-dom';
 import { ApolloClient, InMemoryCache, ApolloProvider, createHttpLink } from '@apollo/client';
 import { setContext } from '@apollo/client/link/context';
 
@@ -42,9 +42,9 @@ function App() {
             <Nav />
             <Switch>
               <Route exact path="/" component={Home} />
-              <Route exact path="/saved" component={Saved} />
 
               <Suspense fallback={<div>Loading...</div>}>
+                <Route exact path="/saved" component={Saved} />
                 <Route exact path="/manga/:key" children={<MangaDetails />} />
                 <Route exact path="/login" component={Login} />
                 <Route exact path="/signup" component={Signup} />
